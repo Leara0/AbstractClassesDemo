@@ -10,13 +10,45 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            /*
-             * Todo: Follow all comments!! 
-             * Double click on the region (gray box) to view all comments
-             */
+            List<Vehicle> vehicles = new List<Vehicle>();
+            
+            Car car1 = new Car()
+            {
+                Year = "2024",
+                Make = "Ford",
+                Model = "Explorer",
+                NumberOfDoors = 4
+            };
+            Vehicle car2 = new Car(2, "2015" , "Honda", "Accord");
+            Motorcycle motorcycle1 = new Motorcycle()
+            {
+                HasSideCar = false,
+                Year = "2024",
+                Make = "Harley-Davidson",
+                Model = "CVO", 
+            };
+            Vehicle motorcycle2 = new Motorcycle(false, "2022", "Harley-Davidson", "Road Glide");
+           
+            vehicles.Add(car1);
+            vehicles.Add(car2);
+            vehicles.Add(motorcycle1);
+            vehicles.Add(motorcycle2);
 
-            #region Vehicles
+            foreach (Vehicle vehicle in vehicles)
+            {
+                Console.WriteLine($"This vehicle is a {vehicle.Year} {vehicle.Make} {vehicle.Model}");
+                
+            }
+            car1.DriveAbstract();
+            car1.DriveVirtual();
+            
+            motorcycle1.DriveAbstract();
+            motorcycle1.DriveVirtual();
+            
+            
+           #region Instructions
 
+           
             /*
              * Create an abstract class called Vehicle
              * The vehicle class shall have three string properties: Year, Make, and Model
@@ -35,7 +67,8 @@ namespace ConsoleUI
             // Create a list of Vehicle called vehicles
 
             /*
-             * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
+             * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing)
+             * but use constuctors from derived classes
              * 
              * Set the properties values with object initializer syntax
              */
